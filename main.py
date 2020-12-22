@@ -8,10 +8,10 @@ def run(f) :
             f = f' {c} '.join(l)
         else :
             l = f.split(c)
-            print(l)
+            #print(l)
             j = 0
             for p in range(len(l)-1) :
-                print(j)
+                #print(j)
                 if j == 0 and l[j] == '' :
                     del l[0]
                     el = l[j]
@@ -20,11 +20,11 @@ def run(f) :
                     j-=1
                 else :
                     i = l[j]
-                    print('i = ',i)
+                    #print('i = ',i)
                     t = -1
                     while i[t] == ' ' :
                         t -= 1
-                    print('C avant - :',i[t],i)
+                    #print('C avant - :',i[t],i)
                     if i[t] in ["-","+","*","/"] :
                         el = l[j+1]
                         el = '-' + el
@@ -33,18 +33,18 @@ def run(f) :
                         el = l[j+1]
                         el = ' - ' + el
                         l[j+1] = el
-                print(l)
+                #print(l)
                 j += 1
             f = " ".join(l)
-    print(f)
+    #print(f)
     f = f.split(' ')
-    print(f)
+    #print(f)
     l = []
     for i in f :
         if i != '' :
             l.append(i)
     f = " ".join(l)
-    print(f)
+    #print(f)
     #calcule la fonction (avec un espace entre chaque cartacère)
     
     fc = f.split(' ')
@@ -71,9 +71,9 @@ def run(f) :
             del fc[p-1]
             p -= 1
         p+=1
-    print("".join(fc))
+    #print("".join(fc))
 
-    print(fc)
+    #print(fc)
     p = 0
     while p < len(fc)-1 :
         if str(fc[p]) == "+" :
@@ -91,7 +91,7 @@ def run(f) :
             del fc[p-1]
             p -= 1
         p+=1
-    print(fc)
+    #print(fc)
     return float(fc[0])
 
 def parenthese(f) :
@@ -120,7 +120,7 @@ def parenthese(f) :
             fonc += i
         else :
             re += i
-    print(fonc, re)
+    #print(fonc, re)
     return fonc, re
     
 def calcul(f) :
@@ -134,12 +134,12 @@ def calcul(f) :
             if len(g) == 1 :
                 break 
             else :
-                print('Non PR :', g[-1])
+                #print('Non PR :', g[-1])
                 result = run(g[-1])
                 del g[-1]
                 ls = g[-1].split('@')
                 g[-1] = str(result).join(ls)
-        print(g)
+        #print(g)
 
     print("fin :",g)
     result = run(g[-1])
@@ -154,10 +154,10 @@ while True :
             f = f' {c} '.join(l)
         else :
             l = f.split(c)
-            print(l)
+            #print(l)
             j = 0
             for p in range(len(l)-1) :
-                print(j)
+               #print(j)
                 if j == 0 and l[j] == '' :
                     del l[0]
                     el = l[j]
@@ -166,11 +166,11 @@ while True :
                     j-=1
                 else :
                     i = l[j]
-                    print('i = ',i)
+                 #   print('i = ',i)
                     t = -1
                     while i[t] == ' ' :
                         t -= 1
-                    print('C avant - :',i[t],i)
+                    #print('C avant - :',i[t],i)
                     if i[t] in ["-","+","*","/"] :
                         el = l[j+1]
                         el = '-' + el
@@ -179,18 +179,22 @@ while True :
                         el = l[j+1]
                         el = ' - ' + el
                         l[j+1] = el
-                print(l)
+                #print(l)
                 j += 1
             f = " ".join(l)
-    print("f: ",f)
+    #print("f: ",f)
+    l = f.split("-x")
+    f = "-1 * x".join(l)
     f = f.split(' ')
-    print(f)
+    #print(f)
     l = []
     for i in f :
         if i != '' :
             l.append(i)
     f = l
+    
     print(f)
+    #print(f)
     deb = int(input('Begin : '))
     fin = int(input('End : '))
     result = []
@@ -202,7 +206,7 @@ while True :
                 fc.append(str(deb))
             else :
                 fc.append(str(j))
-        print(' '.join(fc))
+        #print(' '.join(fc))
         result.append(calcul(' '.join(fc)))
         x.append(deb)
         deb += 1
