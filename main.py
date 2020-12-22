@@ -3,8 +3,40 @@ import numpy as np
 def run(f) :
     #Supprime les espaces
     for c in ['+','-','*','/','(',')',' '] :
-        l = f.split(c)
-        f = f' {c} '.join(l)
+        if c != '-' :
+            l = f.split(c)
+            f = f' {c} '.join(l)
+        else :
+            l = f.split(c)
+            print(l)
+            j = 0
+            for p in range(len(l)-1) :
+                print(j)
+                if j == 0 and l[j] == '' :
+                    del l[0]
+                    el = l[j]
+                    el = '-' + el
+                    l[j] = el
+                    j-=1
+                else :
+                    i = l[j]
+                    print('i = ',i)
+                    t = -1
+                    while i[t] == ' ' :
+                        t -= 1
+                    print('C avant - :',i[t],i)
+                    if i[t] in ["-","+","*","/"] :
+                        el = l[j+1]
+                        el = '-' + el
+                        l[j+1] = el
+                    else :
+                        el = l[j+1]
+                        el = ' - ' + el
+                        l[j+1] = el
+                print(l)
+                j += 1
+            f = " ".join(l)
+    print(f)
     f = f.split(' ')
     print(f)
     l = []
@@ -112,12 +144,45 @@ def calcul(f) :
     print("fin :",g)
     result = run(g[-1])
     print(result)   
+    return result
 
 while True :
     f = input('Fonction : ')
     for c in ['+','-','*','/','(',')',' '] :
-        l = f.split(c)
-        f = f' {c} '.join(l)
+        if c != '-' :
+            l = f.split(c)
+            f = f' {c} '.join(l)
+        else :
+            l = f.split(c)
+            print(l)
+            j = 0
+            for p in range(len(l)-1) :
+                print(j)
+                if j == 0 and l[j] == '' :
+                    del l[0]
+                    el = l[j]
+                    el = '-' + el
+                    l[j] = el
+                    j-=1
+                else :
+                    i = l[j]
+                    print('i = ',i)
+                    t = -1
+                    while i[t] == ' ' :
+                        t -= 1
+                    print('C avant - :',i[t],i)
+                    if i[t] in ["-","+","*","/"] :
+                        el = l[j+1]
+                        el = '-' + el
+                        l[j+1] = el
+                    else :
+                        el = l[j+1]
+                        el = ' - ' + el
+                        l[j+1] = el
+                print(l)
+                j += 1
+            f = " ".join(l)
+    print("f: ",f)
     f = f.split(' ')
     print(f)
     l = []
@@ -125,6 +190,7 @@ while True :
         if i != '' :
             l.append(i)
     f = l
+    print(f)
     deb = int(input('Begin : '))
     fin = int(input('End : '))
     result = []
@@ -146,3 +212,4 @@ while True :
     print(y)
     pyplot.plot(x, y)
     pyplot.show()
+
